@@ -10,10 +10,10 @@ import Foundation
 struct Storage {
     @UserDefault(key: .isFirstLaunch, defaultValue: true)
     var isFirstLaunch: Bool
-
+    
     @UserDefault(key: .isInBackground, defaultValue: false)
     var isInBackground: Bool
-
+    
     @UserDefault(key: .userEmail, defaultValue: "")
     var userEmail: String
 }
@@ -22,7 +22,7 @@ struct Storage {
 struct UserDefault<T: PropertyListValue> {
     let key: Key
     let defaultValue: T
-
+    
     var wrappedValue: T {
         get { UserDefaults.standard.value(forKey: key.rawValue) as? T ?? defaultValue }
         set { UserDefaults.standard.set(newValue, forKey: key.rawValue) }

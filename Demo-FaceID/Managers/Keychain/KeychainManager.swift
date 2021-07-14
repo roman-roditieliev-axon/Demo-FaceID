@@ -8,7 +8,7 @@
 import Foundation
 
 struct KeychainManager {
-    // MARK: Types
+    // MARK: - Types
 
     enum KeychainError: Error {
         case noPassword
@@ -17,7 +17,7 @@ struct KeychainManager {
         case unhandledError(status: OSStatus)
     }
 
-    // MARK: Properties
+    // MARK: - Properties
 
     let service: String
 
@@ -25,7 +25,7 @@ struct KeychainManager {
 
     let accessGroup: String?
 
-    // MARK: Intialization
+    // MARK: - Intialization
 
     init(service: String, account: String, accessGroup: String? = nil) {
         self.service = service
@@ -33,13 +33,10 @@ struct KeychainManager {
         self.accessGroup = accessGroup
     }
 
-    // MARK: Keychain access
+    // MARK: - Keychain access
 
     func readPassword() throws -> String  {
-        /*
-            Build a query to find the item that matches the service, account and
-            access group.
-        */
+        // Build a query to find the item that matches the service, account and access group.
         var query = KeychainManager.keychainQuery(withService: service, account: account, accessGroup: accessGroup)
         query[kSecMatchLimit as String] = kSecMatchLimitOne
         query[kSecReturnAttributes as String] = kCFBooleanTrue
@@ -85,10 +82,7 @@ struct KeychainManager {
             guard status == noErr else { throw KeychainError.unhandledError(status: status) }
         }
         catch KeychainError.noPassword {
-            /*
-                No password was found in the keychain. Create a dictionary to save
-                as a new keychain item.
-            */
+           // No password was found in the keychain. Create a dictionary to save as a new keychain item.
             var newItem = KeychainManager.keychainQuery(withService: service, account: account, accessGroup: accessGroup)
             newItem[kSecValueData as String] = encodedPassword as AnyObject?
 
@@ -157,7 +151,7 @@ struct KeychainManager {
         return passwordItems
     }
 
-    // MARK: Convenience
+    // MARK: - Convenience
 
     private static func keychainQuery(withService service: String, account: String? = nil, accessGroup: String? = nil) -> [String : AnyObject] {
         var query = [String : AnyObject]()
@@ -175,3 +169,11 @@ struct KeychainManager {
         return query
     }
 }
+
+// MARK: - KeychainConfiguration
+
+struct KeychainConfiguration {
+    static let serviceName = "Demo-FaceID"
+    static let accessGroup: String? = nil
+}
+

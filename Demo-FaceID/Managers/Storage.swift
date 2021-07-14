@@ -13,6 +13,9 @@ struct Storage {
 
     @UserDefault(key: .isInBackground, defaultValue: false)
     var isInBackground: Bool
+
+    @UserDefault(key: .userEmail, defaultValue: "")
+    var userEmail: String
 }
 
 @propertyWrapper
@@ -43,4 +46,5 @@ extension Bool: PropertyListValue {}
 extension Key {
     static let isFirstLaunch: Key = "isFirstLaunch"
     static let isInBackground: Key = "isInBackground"
+    static let userEmail: Key = "userEmail"
 }

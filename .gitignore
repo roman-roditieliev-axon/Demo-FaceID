@@ -84,7 +84,7 @@ fastlane/test_output
 
 # Code Injection
 #
-# After new code Injection tools there's a generated folder /iOSInjectionProject
-# https://github.com/johnno1962/injectionforxcode
 
-iOSInjectionProject/
+Demo-FaceID/project.xcworkspace/xcuserdata/a1.xcuserdatad/UserInterfaceState.xcuserstate
+Demo-FaceID.xcodeproj/xcuserdata/a1.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+Demo-FaceID.xcodeproj/xcuserdata/a1.xcuserdatad/xcschemes/xcschememanagement.plist

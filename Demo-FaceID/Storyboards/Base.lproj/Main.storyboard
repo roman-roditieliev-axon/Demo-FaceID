@@ -96,7 +96,7 @@
         <!--Main View Controller-->
         <scene sceneID="ABw-NF-8YL">
             <objects>
-                <viewController id="d8u-i9-Gol" customClass="MainViewController" customModule="Demo_FaceID" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="d8u-i9-Gol" customClass="MainViewController" customModule="Demo_FaceID" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e86-6k-yZu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

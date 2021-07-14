@@ -123,6 +123,15 @@
 			path = Keychain;
 			sourceTree = "<group>";
 		};
+		CE9AE99C269F25B5004F066B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CEF88D68269EE0DE00F5E2A7 /* LaunchScreen.storyboard */,
+				CEF88D63269EE0DE00F5E2A7 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		CEF88D51269EE0DE00F5E2A7 = {
 			isa = PBXGroup;
 			children = (
@@ -144,14 +153,13 @@
 		CEF88D5C269EE0DE00F5E2A7 /* Demo-FaceID */ = {
 			isa = PBXGroup;
 			children = (
-				CE9AE981269EEB22004F066B /* Models */,
+				CE9AE99C269F25B5004F066B /* Storyboards */,
 				CE9AE980269EEAFA004F066B /* ViewControllers */,
+				CE9AE981269EEB22004F066B /* Models */,
 				CE9AE97F269EEAF2004F066B /* Managers */,
 				CEF88D5D269EE0DE00F5E2A7 /* AppDelegate.swift */,
 				CEF88D5F269EE0DE00F5E2A7 /* SceneDelegate.swift */,
-				CEF88D63269EE0DE00F5E2A7 /* Main.storyboard */,
 				CEF88D66269EE0DE00F5E2A7 /* Assets.xcassets */,
-				CEF88D68269EE0DE00F5E2A7 /* LaunchScreen.storyboard */,
 				CEF88D6B269EE0DE00F5E2A7 /* Info.plist */,
 			);
 			path = "Demo-FaceID";

@@ -60,7 +60,6 @@ class LoginViewController: UIViewController {
         passwordTextField.layer.borderColor = UIColor.darkGray.cgColor
         loginButton.layer.borderColor = UIColor.darkGray.cgColor
 
-        loginButton.isUserInteractionEnabled = self.storage.isFirstLaunch ? true : false
     }
 
     // MARK: - Login logic
@@ -72,7 +71,6 @@ class LoginViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default)
         alertView.addAction(okAction)
         DispatchQueue.main.async {
-            self.loginButton.isUserInteractionEnabled = self.storage.isFirstLaunch ? true : false
             self.present(alertView, animated: false)
         }
     }
@@ -105,7 +103,7 @@ class LoginViewController: UIViewController {
     }
 
     private func checkCredentialsFromKeychain() {
-        if !storage.isFirstLaunch && !storage.userEmail.isEmpty {
+        if !storage.userEmail.isEmpty {
             do {
                 let passwordItem = KeychainManager(service: KeychainConfiguration.serviceName,
                                                         account: storage.userEmail,
@@ -124,8 +122,6 @@ class LoginViewController: UIViewController {
     private func checkFaceID() {
         self.biometric.authenticateUser { (message) in
             if let error = message {
-                self.storage.isFirstLaunch = true
-                self.storage.userEmail = ""
                 self.showAlert(error: error)
             } else {
                 self.checkCredentialsFromKeychain()
@@ -136,6 +132,8 @@ class LoginViewController: UIViewController {
     // MARK: - Actions
 
     private func goToMainVC() {
+        emailTextField.text = ""
+        passwordTextField.text = ""
         performSegue(withIdentifier: segueMainIdentifier, sender: nil)
     }
 
@@ -167,3 +165,4 @@ extension LoginViewController: UITextFieldDelegate {
         }
     }
 }
+

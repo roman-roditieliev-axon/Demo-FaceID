@@ -13,6 +13,7 @@
 		CE9AE98F269EEBD5004F066B /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9AE98E269EEBD5004F066B /* KeychainManager.swift */; };
 		CE9AE993269EEBFD004F066B /* BiometricAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9AE992269EEBFD004F066B /* BiometricAuthManager.swift */; };
 		CE9AE997269EECB8004F066B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9AE996269EECB8004F066B /* MainViewController.swift */; };
+		CE9AE99A269F06FE004F066B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9AE999269F06FE004F066B /* Storage.swift */; };
 		CEF88D5E269EE0DE00F5E2A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF88D5D269EE0DE00F5E2A7 /* AppDelegate.swift */; };
 		CEF88D60269EE0DE00F5E2A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF88D5F269EE0DE00F5E2A7 /* SceneDelegate.swift */; };
 		CEF88D62269EE0DE00F5E2A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF88D61269EE0DE00F5E2A7 /* LoginViewController.swift */; };
@@ -30,6 +31,7 @@
 		CE9AE98E269EEBD5004F066B /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		CE9AE992269EEBFD004F066B /* BiometricAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthManager.swift; sourceTree = "<group>"; };
 		CE9AE996269EECB8004F066B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CE9AE999269F06FE004F066B /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		CEF88D5A269EE0DE00F5E2A7 /* Demo-FaceID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-FaceID.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF88D5D269EE0DE00F5E2A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF88D5F269EE0DE00F5E2A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				CE9AE988269EEB6D004F066B /* Keychain */,
 				CE9AE987269EEB5D004F066B /* Network */,
 				CE9AE986269EEB55004F066B /* Biometric */,
+				CE9AE999269F06FE004F066B /* Storage.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				CE9AE993269EEBFD004F066B /* BiometricAuthManager.swift in Sources */,
 				CEF88D5E269EE0DE00F5E2A7 /* AppDelegate.swift in Sources */,
 				CE9AE98A269EEB94004F066B /* NetworkManager.swift in Sources */,
+				CE9AE99A269F06FE004F066B /* Storage.swift in Sources */,
 				CE9AE983269EEB3E004F066B /* LoginResponse.swift in Sources */,
 				CEF88D60269EE0DE00F5E2A7 /* SceneDelegate.swift in Sources */,
 				CE9AE997269EECB8004F066B /* MainViewController.swift in Sources */,

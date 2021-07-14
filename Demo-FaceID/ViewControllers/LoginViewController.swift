@@ -27,6 +27,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVC()
+
+        if !storage.isFirstLaunch {
+            checkFaceID()
+        }
     }
 
     private func setupVC() {
@@ -50,14 +54,16 @@ class LoginViewController: UIViewController {
         passwordTextField.layer.borderColor = UIColor.darkGray.cgColor
         loginButton.layer.borderColor = UIColor.darkGray.cgColor
 
-//        loginButton.isUserInteractionEnabled = self.storage.isFirstLaunch ? true : false
+        loginButton.isUserInteractionEnabled = self.storage.isFirstLaunch ? true : false
     }
 
     private func login() {
-        networkManager.login(email: email, password: password, completion: { response in
-            self.storage.isFirstLaunch = false
-            self.checkFaceID()
-        })
+        if !email.isEmpty && !password.isEmpty {
+            networkManager.login(email: email, password: password, completion: { response in
+                self.storage.isFirstLaunch = false
+                self.checkFaceID()
+            })
+        }
     }
 
     private func checkFaceID() {

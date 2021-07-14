@@ -5,6 +5,7 @@
 //  Created by User on 14.07.2021.
 //
 
+import Combine
 import UIKit
 
 // @Published var username = "a_podcast_admin@axon.dev"
@@ -17,6 +18,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
 
     // MARK: - Properties
+
+    private var cancellable: AnyCancellable?
 
     private let segueMainIdentifier = "Main"
     private var networkManager = NetworkManager()
@@ -31,6 +34,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVC()
+        successAuth()
 
         if !storage.isFirstLaunch {
             checkFaceID()
@@ -91,14 +95,7 @@ class LoginViewController: UIViewController {
 
     private func login() {
         if !email.isEmpty && !password.isEmpty {
-            networkManager.login(email: email, password: password, completion: { response in
-                if self.storage.isFirstLaunch {
-                    self.savePassword()
-                    self.checkFaceID()
-                } else {
-                    self.goToMainVC()
-                }
-            })
+            networkManager.login(email: email, password: password)
         }
     }
 
@@ -125,6 +122,17 @@ class LoginViewController: UIViewController {
                 self.showAlert(error: error)
             } else {
                 self.checkCredentialsFromKeychain()
+            }
+        }
+    }
+
+    private func successAuth() {
+        cancellable = networkManager.objectWillChange.sink { [weak self] in
+            if let firstLaunch = self?.storage.isFirstLaunch, firstLaunch {
+                self?.savePassword()
+                self?.checkFaceID()
+            } else {
+                self?.goToMainVC()
             }
         }
     }

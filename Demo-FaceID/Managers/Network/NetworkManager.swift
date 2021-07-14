@@ -8,13 +8,11 @@
 import Combine
 import Alamofire
 
-class NetworkManager {
+class NetworkManager: ObservableObject {
 
-    @Published var successResponse: LoginResponse?
-    @Published var isLoading = false
+    @Published var successAuth: Bool?
 
-    func login(email: String, password: String, completion: @escaping(LoginResponse) -> Void) {
-        isLoading = true
+    func login(email: String, password: String) {
 
         let url = "http://18.192.5.103:8080/api/tokens/credentials"
         let params = ["email" : email, "password" : password, "clientSecret" : "edd67720-9c02-11ea-bb37-0242ac130002"]
@@ -26,15 +24,13 @@ class NetworkManager {
             case .success(_):
                 do {
                     let result = try JSONDecoder().decode(LoginResponse.self, from: response.data!)
-                    weakSelf.successResponse = result
-                    completion(result)
+                    weakSelf.successAuth = true
                 } catch let error as NSError {
                     print("Failed to load: \(error.localizedDescription)")
                 }
             case .failure(let error):
                 print("Request error: \(error.localizedDescription)")
             }
-            weakSelf.isLoading = false
         }
     }
 

@@ -8,9 +8,6 @@
 import Combine
 import UIKit
 
-// @Published var username = "a_podcast_admin@axon.dev"
-//@Published var password = "Qwerty1234567"
-
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
